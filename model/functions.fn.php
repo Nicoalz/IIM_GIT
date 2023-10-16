@@ -32,10 +32,11 @@ SUMMARY
 	*/
 	function userRegistration(PDO $db, $username, $email, $password){
 		$sql = "INSERT INTO users
-				  SET
-				  username = :username,
-				  email = :email,
-				  password = :password";
+			SET
+			username = :username,
+			email = :email,
+			password = :password,
+			picture = :picture";
 
 
 		$req = $db->prepare($sql);
@@ -43,6 +44,7 @@ SUMMARY
 			':username' => $username,
 			':email' => $email,
 			':password' => $password,
+			'picture' => 'default.png'
 		));
 		
 
